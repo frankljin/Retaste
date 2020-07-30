@@ -1,0 +1,28 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+#first {
+    background-image: url(wallpaper.jpg);
+    filter: brightness(100%);
+}
+
+h1 {
+    color: #E27D60;
+    font-family: 'Playball';
+    font-size: 90px;
+}
+
+h3 {
+    color: aliceblue;
+}
+
+.landing-text {
+    position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
