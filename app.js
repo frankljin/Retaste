@@ -31,22 +31,37 @@ app.listen(3000, function(){
 // take user input
 app.post("/", function(req, res){
     let ingredients = req.body.ingredients;
-    ingredients = ingredients.replace(/\s+/g, '');
+    ingredients = ingredients.replace(/\s+/g, '');  // remove spaces
 
     const url = api_url + "?apiKey=" + api_key + "&ingredients=" + ingredients + "&number=6";
 
     https.get(url, function(response){
+
+        // JSON is sent in chunks... make sure all is sent
         let data = "";
         response.on("data", (chunk) => {
             data += chunk;
         });
         response.on("end", () => {
-            const body = JSON.parse(data);
-            console.log(body);
+            const apibody = JSON.parse(data);
+            var namelist = [];
+            var imglist = [];
+            var inglist = [];
+
+            apibody.forEach(function(m){
+                namelist.push(m[Object.keys(m)[1]]);
+                imglist.push(m[Object.keys(m)[2]]);
+                inglist.push(m[Object.keys(m)[4]]);
+            })
+
+            res.render("results", {
+                names: namelist,
+                images: imglist,
+                ingredients: inglist
+            })
         })
     });
 
-
-    res.redirect("/results");
+    
 });
 
