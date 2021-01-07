@@ -8,6 +8,7 @@ const ejs = require("ejs");
 const api_url = "https://api.spoonacular.com/recipes/findByIngredients";
 const api_key = "6585b9aed5d94a43ba4ef7ecdbc36315";
 const recipe_link = "https://api.spoonacular.com/recipes/";
+const PORT = process.env.PORT || 5001;
 
 // access files/locations required for project 
 app.use(express.static('public'));
@@ -25,7 +26,7 @@ app.get("/results", function (req, res) {
 });
 
 // startup 
-app.listen(3000, function () {
+app.listen(PORT, function () {
     console.log("Server is running on port 3000");
 });
 
