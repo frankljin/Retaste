@@ -1,11 +1,15 @@
 {
-  "title": "Landing Page",
-  "name": "startbootstrap-landing-page",
+  "title": "Retaste",
+  "name": "Retaste",
   "version": "5.0.9",
-  "scripts": {
-    "start": "gulp watch"
+  "engines": {
+    "node": "12.x",
+    "npm": "6.x"
   },
-  "description": "An HTML landing page template built with Bootstrap",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "description": "Retaste",
   "keywords": [
     "css",
     "sass",
